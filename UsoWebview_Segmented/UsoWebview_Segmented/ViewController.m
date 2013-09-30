@@ -46,6 +46,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    vistaDetalleFlor.hidden = YES;
+    [self obtenerFlor:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning
