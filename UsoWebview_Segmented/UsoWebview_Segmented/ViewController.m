@@ -14,6 +14,34 @@
 
 @implementation ViewController
 
+@synthesize escogerColor,vistaFlor,vistaDetalleFlor;
+
+- (IBAction)obtenerFlor:(id)sender {
+
+    NSURL *imageURL;
+    NSURL *detalleURL;
+    NSString *imagenURLString;
+    NSString *detalleURLString;
+    NSString *color;
+    int sessionID;
+    
+    
+    color = [escogerColor titleForSegmentAtIndex:escogerColor.selectedSegmentIndex];
+    sessionID = random()%10000;
+    
+    imagenURLString = [[NSString alloc] initWithFormat:@"http://www.floraphotographs.com/showrandomiphone.php?color=%@&session=%d",color,sessionID];
+    detalleURLString = [[NSString alloc] initWithFormat:@"http://www.floraphotographs.com/detailiphone.php?session=%d",sessionID];
+    
+    imageURL = [[NSURL alloc] initWithString:imagenURLString];
+    detalleURL = [[NSURL alloc] initWithString:detalleURLString];    
+    
+    [vistaFlor loadRequest:[NSURLRequest requestWithURL:imageURL]];
+    [vistaDetalleFlor loadRequest:[NSURLRequest requestWithURL:detalleURL]];
+    
+    vistaDetalleFlor.backgroundColor = [UIColor clearColor];
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,9 +60,10 @@
     [self setVistaDetalleFlor:nil];
     [super viewDidUnload];
 }
-- (IBAction)palancaDetalleFlor:(id)sender {
+- (IBAction)palancaDetalleFlor:(UISwitch *)sender {
+    vistaDetalleFlor.hidden = ![sender isOn];
+    
 }
 
-- (IBAction)obtenerFlor:(id)sender {
-}
+
 @end
