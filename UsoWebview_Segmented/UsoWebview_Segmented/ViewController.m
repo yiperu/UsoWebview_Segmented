@@ -26,4 +26,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setEscogerColor:nil];
+    [self setVistaFlor:nil];
+    [self setVistaDetalleFlor:nil];
+    [super viewDidUnload];
+}
+- (IBAction)palancaDetalleFlor:(id)sender {
+}
+
+- (IBAction)obtenerFlor:(id)sender {
+}
 @end

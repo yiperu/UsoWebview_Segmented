@@ -10,4 +10,17 @@
 
 @interface ViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UISegmentedControl *escogerColor;
+@property (strong, nonatomic) IBOutlet UIWebView *vistaFlor;
+@property (strong, nonatomic) IBOutlet UIWebView *vistaDetalleFlor;
+
+
+- (IBAction)palancaDetalleFlor:(id)sender;
+
+
+- (IBAction)obtenerFlor:(id)sender;
+
+
+
+
 @end
